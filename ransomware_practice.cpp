@@ -17,8 +17,8 @@ const TCHAR* path[] = {
 #define Documents path[0]
 #define Desktop path[1]
 #define Downloads path[2]
-#define FILE_ATTSTR_TXT ".txt"
-#define FILE_ATTSTR_DOCX ".docx"
+#define FILE_ATTSTR_TXT L".txt"
+#define FILE_ATTSTR_DOCX L".docx"
 
 WCHAR* CharToWchar(const char* pstrSrc)
 {
@@ -128,8 +128,8 @@ BOOL FindDirectory(const TCHAR* path)
         //}
 
         //else
-        if (strstr(WCharToChar(ffd.cFileName), FILE_ATTSTR_TXT)
-            || strstr(WCharToChar(ffd.cFileName), FILE_ATTSTR_DOCX))
+        if (wcsstr(ffd.cFileName, FILE_ATTSTR_TXT)
+            || wcsstr(ffd.cFileName, FILE_ATTSTR_DOCX))
         {
             //getExt((char*)ffd.cFileName);
             filesize.LowPart = ffd.nFileSizeLow;
